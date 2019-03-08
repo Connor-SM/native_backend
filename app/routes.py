@@ -3,6 +3,10 @@ from flask import request, jsonify
 from app.models import User
 
 
+@app.route('/')
+def index():
+    return ''
+    
 @app.route('/api/', methods=['GET', 'POST'])
 def api():
     email = request.args.get('email')
