@@ -6,17 +6,16 @@ from app.models import User
 @app.route('/')
 def index():
     return ''
-    
+
 @app.route('/api/', methods=['GET', 'POST'])
 def api():
     email = request.args.get('email')
-    password = request.args.get('password')
 
     user = User.query.filter_by(email=email).first()
 
     # if user doesn't exist, reload page and flash message
-    if user is None or not user.check_password(password):
-        return jsonify({ 'error': 'Incorrect Credentials' })
+    if user is None:
+        return jsonify({ 'error': 'User does not exist' })
 
 
     return jsonify(user)
