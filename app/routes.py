@@ -17,5 +17,11 @@ def api():
     if user is None:
         return jsonify({ 'error': 'User does not exist' })
 
+    data = []
 
-    return jsonify(user)
+    data.append({
+        'name': user.name,
+        'email': user.email
+    })
+
+    return jsonify(data)

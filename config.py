@@ -9,3 +9,7 @@ class Config(object):
 
     # uri for postgres local database
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+
+    # # uri for sql lite database
+    # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+    #     'sqlite:///' + os.path.join(basedir, 'app.db')
